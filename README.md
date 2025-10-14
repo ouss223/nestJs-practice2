@@ -42,4 +42,4 @@ Example usage of protected endpoints
 - PATCH /api/todo/:id and DELETE /api/todo/:id
   - Only the creator (matching userId) can modify or delete. Otherwise a 403 Forbidden is returned.
 
-CV CRUD is available at /api/cv (GET, POST, GET/:id, PATCH/:id, DELETE/:id).# nestJs-practice2
+CV CRUD is available at /api/cv (GET, POST, GET/:id, PATCH/:id, DELETE/:id).
