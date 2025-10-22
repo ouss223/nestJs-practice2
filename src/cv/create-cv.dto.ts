@@ -24,9 +24,9 @@ export class CreateCvDto {
   path?: string;
 
   @IsString()
-  userId: string; // Assuming we pass userId
+  userId: string;
 
   @IsOptional()
   @IsString({ each: true })
-  skillIds?: string[]; // For many-to-many
+  skillIds?: string[]; 
 }

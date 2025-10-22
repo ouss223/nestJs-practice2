@@ -15,18 +15,16 @@ async function bootstrap() {
   const skillRepo = dataSource.getRepository(Skill);
   const cvRepo = dataSource.getRepository(Cv);
 
-  // Create users
   const users = [];
   for (let i = 0; i < 3; i++) {
     const user = userRepo.create({
       username: randUserName(),
       email: randEmail(),
-      password: 'password123', // In real app, hash this
+      password: 'password123', 
     });
     users.push(await userRepo.save(user));
   }
 
-  // Create skills
   const skills = [];
   for (let i = 0; i < 5; i++) {
     const skill = skillRepo.create({
@@ -35,7 +33,6 @@ async function bootstrap() {
     skills.push(await skillRepo.save(skill));
   }
 
-  // Create CVs linked to users and skills
   for (let i = 0; i < 5; i++) {
     const cv = cvRepo.create({
       name: randLastName(),
