@@ -7,7 +7,7 @@ const SECRET = 'change-this-secret';
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {
   use(req: Request & { userId?: any }, res: Response, next: NextFunction) {
-    const token = req.header('auth-user');
+    const token = req.header('Authorization')?.replace('Bearer ', '');
     if (!token) {
       return res.status(403).json({ message: 'Token missing' });
     }
