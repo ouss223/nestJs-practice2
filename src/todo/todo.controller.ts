@@ -19,11 +19,12 @@ export class TodoController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() body: any, @Req() req: Request & { userId?: string }) {
-    return this.svc.update(parseInt(id, 10), req.userId as string, body);
+    // use updateByUser to ensure ownership check without conflicting base service signature
+    return this.svc.updateByUser(parseInt(id, 10), req.userId as string, body);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string, @Req() req: Request & { userId?: string }) {
-    return this.svc.remove(parseInt(id, 10), req.userId as string);
+    return this.svc.removeByUser(parseInt(id, 10), req.userId as string);
   }
 }
